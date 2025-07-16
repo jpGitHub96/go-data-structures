@@ -104,6 +104,31 @@ func TestLinkedList_GetNode(t *testing.T) {
 	}
 }
 
+func TestLinkedList_DropFirstNode(t *testing.T) {
+	testList := NewLinkedList[int]()
+	testList.AddNode(1)
+	testList.AddNode(2)
+	testList.AddNode(3)
+
+	if testList.Length != 3 {
+		t.Errorf("Expected linked list length to be 3, got %d", testList.Length)
+	}
+
+	testList.DropFirstNode()
+
+	if testList.Length != 2 {
+		t.Errorf("Expected linked list length to be 2 after dropping first node, got %d", testList.Length)
+	}
+
+	if testList.First.Value != 2 {
+		t.Errorf("Expected first node value to be 2 after dropping first node, got %d", testList.First.Value)
+	}
+
+	if testList.First.GetNext().Value != 3 {
+		t.Errorf("Expected second node value to be 3 after dropping first node, got %d", testList.First.GetNext().Value)
+	}
+}
+
 func TestLinkedList_RemoveNode(t *testing.T) {
 	testList := NewLinkedList[int]()
 	testList.AddNode(1)

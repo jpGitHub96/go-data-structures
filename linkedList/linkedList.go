@@ -89,6 +89,16 @@ func (l *LinkedList[T]) GetNodeByIndex(index int) *Node[T] {
 	return current
 }
 
+func (l *LinkedList[T]) DropFirstNode() bool {
+	if l.IsEmpty() {
+		return false
+	}
+
+	l.First = l.First.GetNext()
+	l.Length--
+	return true
+}
+
 func (l *LinkedList[T]) RemoveNode(value T) bool {
 	if l.IsEmpty() {
 		return false
