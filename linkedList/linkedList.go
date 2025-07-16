@@ -92,9 +92,9 @@ func (l *LinkedList[T]) ToString() {
 
 	current := l.First
 	for current.HasNext() {
-		fmt.Printf("%v ->", current.Value)
+		fmt.Printf(" %v ->", current.Value)
 		current = current.GetNext()
 	}
 
-	fmt.Printf("%v -> nil", current.Value)
+	fmt.Printf(" %v -> nil\n", current.Value)
 }
