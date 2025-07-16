@@ -36,6 +36,57 @@ func TestLinkedList_AddNode(t *testing.T) {
 	}
 }
 
+func TestLinkedList_AddAllNodes(t *testing.T) {
+	testList := NewLinkedList[int]()
+	testList.AddAllNodes([]int{1, 2, 3})
+
+	if testList.Length != 3 {
+		t.Errorf("Expected linked list length to be 3 after adding all nodes, got %d", testList.Length)
+	}
+
+	if testList.First.Value != 1 {
+		t.Errorf("Expected first node value to be 1 after adding all nodes, got %d", testList.First.Value)
+	}
+
+	if testList.First.GetNext().Value != 2 {
+		t.Errorf("Expected second node value to be 2 after adding all nodes, got %d", testList.First.GetNext().Value)
+	}
+
+	if testList.First.GetNext().GetNext().Value != 3 {
+		t.Errorf("Expected third node value to be 3 after adding all nodes, got %d", testList.First.GetNext().GetNext().Value)
+	}
+}
+
+func TestLinkedList_AppendList(t *testing.T) {
+	testList := NewLinkedList[int]()
+	otherList := NewLinkedList[int]()
+
+	testList.AddAllNodes([]int{1, 2, 3})
+	otherList.AddAllNodes([]int{4, 5, 6})
+
+	testList.AppendList(&otherList)
+
+	if testList.Length != 6 {
+		t.Errorf("Expected linked list length to be 6 after appending, got %d", testList.Length)
+	}
+
+	if testList.First.Value != 1 {
+		t.Errorf("Expected first node value to be 1 after appending, got %d", testList.First.Value)
+	}
+
+	if testList.First.GetNext().Value != 2 {
+		t.Errorf("Expected second node value to be 2 after appending, got %d", testList.First.GetNext().Value)
+	}
+
+	if testList.First.GetNext().GetNext().Value != 3 {
+		t.Errorf("Expected third node value to be 3 after appending, got %d", testList.First.GetNext().GetNext().Value)
+	}
+
+	if testList.First.GetNext().GetNext().GetNext().Value != 4 {
+		t.Errorf("Expected fourth node value to be 4 after appending, got %d", testList.First.GetNext().GetNext().GetNext().Value)
+	}
+}
+
 func TestLinkedList_GetNode(t *testing.T) {
 	testList := NewLinkedList[int]()
 	testList.AddNode(1)

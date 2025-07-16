@@ -35,7 +35,31 @@ func (l *LinkedList[T]) AddNode(value T) {
 	l.Length++
 }
 
-// func add all
+func (l *LinkedList[T]) AddAllNodes(value []T) {
+	for _, v := range value {
+		l.AddNode(v)
+	}
+}
+
+func (l *LinkedList[T]) AppendList(other *LinkedList[T]) {
+	if other.IsEmpty() {
+		return
+	}
+
+	if l.IsEmpty() {
+		l.First = other.First
+		l.Length = other.Length
+		return
+	}
+
+	current := l.First
+	for current.HasNext() {
+		current = current.GetNext()
+	}
+
+	current.Next = other.First
+	l.Length += other.Length
+}
 
 func (l *LinkedList[T]) GetNode(value T) *Node[T] {
 	if l.Length == 0 {
