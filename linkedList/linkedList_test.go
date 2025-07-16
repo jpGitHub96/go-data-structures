@@ -31,8 +31,8 @@ func TestLinkedList_AddNode(t *testing.T) {
 		t.Errorf("Expected first node value to be 1, got %d", testList.First.Value)
 	}
 
-	if testList.First.GetNext().Value != 2 {
-		t.Errorf("Expected second node value to be 2, got %d", testList.First.GetNext().Value)
+	if testList.First.getNext().Value != 2 {
+		t.Errorf("Expected second node value to be 2, got %d", testList.First.getNext().Value)
 	}
 }
 
