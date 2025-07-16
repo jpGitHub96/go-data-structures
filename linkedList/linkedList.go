@@ -35,6 +35,8 @@ func (l *LinkedList[T]) AddNode(value T) {
 	l.Length++
 }
 
+// func add all
+
 func (l *LinkedList[T]) GetNode(value T) *Node[T] {
 	if l.Length == 0 {
 		return nil
@@ -93,5 +95,6 @@ func (l *LinkedList[T]) ToString() {
 		fmt.Printf("%v ->", current.Value)
 		current = current.GetNext()
 	}
-	fmt.Println(" nil")
+
+	fmt.Printf("%v -> nil", current.Value)
 }
