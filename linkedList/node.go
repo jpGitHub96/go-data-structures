@@ -1,19 +1,19 @@
 package linkedList
 
-type node[T comparable] struct {
+type Node[T comparable] struct {
 	Value T
-	Next  *node[T]
+	Next  *Node[T]
 }
 
-func (n node[T]) hasNext() bool {
+func (n Node[T]) HasNext() bool {
 	if n.Next == nil {
 		return false
 	}
 	return true
 }
 
-func (n node[T]) getNext() *node[T] {
-	if n.hasNext() {
+func (n Node[T]) GetNext() *Node[T] {
+	if n.HasNext() {
 		return n.Next
 	}
 	return nil
