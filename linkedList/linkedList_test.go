@@ -5,7 +5,7 @@ import (
 )
 
 func TestLinkedList_IsEmpty(t *testing.T) {
-	testList := newLinkedList[int]()
+	testList := NewLinkedList[int]()
 
 	if !testList.IsEmpty() {
 		t.Errorf("Expected linked list to be empty, but it is not")
@@ -18,7 +18,7 @@ func TestLinkedList_IsEmpty(t *testing.T) {
 }
 
 func TestLinkedList_AddNode(t *testing.T) {
-	testList := newLinkedList[int]()
+	testList := NewLinkedList[int]()
 	testList.AddNode(1)
 	testList.AddNode(2)
 	testList.AddNode(3)
@@ -37,7 +37,7 @@ func TestLinkedList_AddNode(t *testing.T) {
 }
 
 func TestLinkedList_GetNode(t *testing.T) {
-	testList := newLinkedList[int]()
+	testList := NewLinkedList[int]()
 	testList.AddNode(1)
 	testList.AddNode(2)
 	testList.AddNode(3)
@@ -54,7 +54,7 @@ func TestLinkedList_GetNode(t *testing.T) {
 }
 
 func TestLinkedList_RemoveNode(t *testing.T) {
-	testList := newLinkedList[int]()
+	testList := NewLinkedList[int]()
 	testList.AddNode(1)
 	testList.AddNode(2)
 	testList.AddNode(3)
@@ -78,7 +78,7 @@ func TestLinkedList_RemoveNode(t *testing.T) {
 }
 
 func TestLinkedList_GetNodeByIndex(t *testing.T) {
-	testList := newLinkedList[int]()
+	testList := NewLinkedList[int]()
 	testList.AddNode(1)
 	testList.AddNode(2)
 	testList.AddNode(3)

@@ -7,7 +7,7 @@ type LinkedList[T comparable] struct {
 	Length int
 }
 
-func newLinkedList[T comparable]() LinkedList[T] {
+func NewLinkedList[T comparable]() LinkedList[T] {
 	return LinkedList[T]{
 		First:  nil,
 		Length: 0,
