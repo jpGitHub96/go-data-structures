@@ -41,6 +41,21 @@ func (l *LinkedList[T]) AddAllNodes(value []T) {
 	}
 }
 
+func (l *LinkedList[T]) Copy() *LinkedList[T] {
+	newList := NewLinkedList[T]()
+	if l.IsEmpty() {
+		return &newList
+	}
+
+	current := l.First
+	for current != nil {
+		newList.AddNode(current.Value)
+		current = current.GetNext()
+	}
+
+	return &newList
+}
+
 func (l *LinkedList[T]) AppendList(other *LinkedList[T]) {
 	if other.IsEmpty() {
 		return

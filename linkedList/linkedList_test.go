@@ -57,6 +57,26 @@ func TestLinkedList_AddAllNodes(t *testing.T) {
 	}
 }
 
+func TestLinkedList_Copy(t *testing.T) {
+	testList := NewLinkedList[int]()
+	testList.AddAllNodes([]int{1, 2, 3})
+	copiedList := testList.Copy()
+
+	if copiedList.Length != 3 {
+		t.Errorf("Expected copied linked list length to be 3, got %d", copiedList.Length)
+	}
+
+	if copiedList.First.Value != 1 {
+		t.Errorf("Expected first node value of copied list to be 1, got %d", copiedList.First.Value)
+	}
+
+	testList.AddNode(4)
+
+	if copiedList.Length != 3 {
+		t.Errorf("Expected copied linked list length to remain 3 after modifying original, got %d", copiedList.Length)
+	}
+}
+
 func TestLinkedList_AppendList(t *testing.T) {
 	testList := NewLinkedList[int]()
 	otherList := NewLinkedList[int]()
