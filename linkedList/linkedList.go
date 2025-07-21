@@ -137,13 +137,18 @@ func (l *LinkedList[T]) RemoveNode(value T) bool {
 	return false
 }
 
-func (l *LinkedList[T]) ToString() {
+func (l *LinkedList[T]) ToString() string {
+
+	if l.IsEmpty() {
+		return "nil"
+	}
 
 	current := l.First
+	asString := ""
 	for current.HasNext() {
-		fmt.Printf(" %v ->", current.Value)
+		asString += fmt.Sprintf("%v -> ", current.Value)
 		current = current.GetNext()
 	}
 
-	fmt.Printf(" %v -> nil\n", current.Value)
+	return asString + fmt.Sprintf("%v -> nil", current.Value)
 }

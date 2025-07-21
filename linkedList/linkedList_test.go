@@ -199,3 +199,18 @@ func TestLinkedList_GetNodeByIndex(t *testing.T) {
 		t.Errorf("Expected to not find a node at index 3, got %v", node)
 	}
 }
+
+func TestLinkedList_ToString(t *testing.T) {
+	testList := NewLinkedList[int]()
+	testList.AddAllNodes([]int{1, 2, 3})
+
+	expectedString := "1 -> 2 -> 3 -> nil"
+	if testList.ToString() != expectedString {
+		t.Errorf("Expected linked list string representation to be '%s', got '%s'", expectedString, testList.ToString())
+	}
+
+	emptyList := NewLinkedList[int]()
+	if emptyList.ToString() != "nil" {
+		t.Errorf("Expected empty linked list string representation to be '', got '%s'", emptyList.ToString())
+	}
+}
